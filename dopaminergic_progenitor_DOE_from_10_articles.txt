@@ -1,0 +1,573 @@
+Title: iPSC to Dopaminergic Progenitor DOE Summary from 10 Local PMC Articles
+Date: 2026-03-31
+Method: No API used. Summary built by reading local PMC XML articles plus local timeline extraction tables, then manually synthesizing the protocol logic.
+
+Target:
+- Build a practical DOE for differentiating iPSC/hPSC into dopaminergic progenitors, not only mature dopaminergic neurons.
+- Keep the logic and evidence behind stage definitions and factor ranges.
+
+Selected 10 articles:
+1. PMC10139404 - An Efficient 2D Protocol for Differentiation of iPSCs into Mature Postmitotic Dopaminergic Neurons
+2. PMC3775937 - Improved cell therapy protocol for Parkinson’s disease based on differentiation efficiency and safety of hESC-, hiPSC and non-human primate iPSC-derived DA neurons
+3. PMC3964289 - Isolation of Human Induced Pluripotent Stem Cell-Derived Dopaminergic Progenitors by Cell Sorting for Successful Transplantation
+4. PMC5067526 - Purification of functional human ES and iPSC-derived midbrain dopaminergic progenitors using LRTM1
+5. PMC5519680 - Expansion of human midbrain floor plate progenitors from induced pluripotent stem cells increases dopaminergic neuron differentiation potential
+6. PMC6881336 - Homogenous generation of dopaminergic neurons from multiple hiPSC lines by transient expression of transcription factors
+7. PMC7460973 - Origin of the Induced Pluripotent Stem Cells Affects Their Differentiation into Dopaminergic Neurons
+8. PMC9160024 - Robust derivation of transplantable dopamine neurons from human pluripotent stem cells by timed retinoic acid delivery
+9. PMC9511827 - Spotting-based differentiation of functional dopaminergic progenitors from human pluripotent stem cells
+10. PMC9684358 - Generation of Human A9 Dopaminergic Pacemakers from Induced Pluripotent Stem Cells
+
+Why these 10:
+- They are protocol-like or protocol-informing papers rather than broad reviews.
+- They contain explicit iPSC/hPSC differentiation trajectories toward midbrain dopaminergic lineage.
+- Even when the final endpoint is mature DA neuron, the papers still report a dopaminergic progenitor or floor-plate progenitor window, which is the key stage for your DOE.
+- I excluded pure review papers and papers without an actionable stage-by-stage differentiation timeline.
+
+==================================================
+1. Consensus Intermediate Stage Map
+==================================================
+
+Stage A. Starting pluripotent state / pre-patterning
+Typical time range:
+- Day -1 to Day 0
+
+Cell state:
+- iPSC / hiPSC / hPSC
+
+Typical basal medium:
+- mTeSR1, E8, or pluripotent maintenance medium
+- some protocols switch immediately into KSR/DMEM or floor-plate induction medium at confluence
+
+Typical factors:
+- Y-27632: 10 uM for plating survival
+
+Interpretation:
+- This stage mostly standardizes survival, confluence, and colony state.
+- It is not the main lineage-defining stage.
+
+Stage B. Neural induction / exit from pluripotency
+Typical time range:
+- Day 0 to Day 5-7
+
+Cell state:
+- early neuroectoderm / neural stem cell-like / early neural progenitor
+
+Typical basal medium families:
+- KSR/DMEM-based induction medium
+- DMEM/F12 + Neurobasal combinations with N2/B27
+
+Common factors:
+- SB431542: usually 10 uM
+- LDN193189: 100-200 nM
+- alternative BMP inhibition: dorsomorphin 2-5 uM or Noggin 600 ng/mL
+
+Typical markers:
+- SOX1, PAX6, Nestin when neural induction is successful
+- OCT4 down
+
+Interpretation:
+- Dual-SMAD inhibition is the most conserved early step across the 10-paper set.
+- This is the first major gate for success because poor neural induction weakens all downstream ventral midbrain specification.
+
+Stage C. Ventral midbrain / floor plate patterning
+Typical time range:
+- Starts Day 1-3 and usually runs to Day 9-11 or Day 13-14
+
+Cell state:
+- ventral neural progenitor
+- ventral midbrain progenitor
+- floor plate progenitor
+- midbrain floor plate progenitor
+
+This stage splits into two protocol families.
+
+Family 1. Classical WNT/FGF8/SHH family
+Typical factors:
+- SHH: often 100 ng/mL
+- Purmorphamine: 1-2 uM
+- or SAG: 1 uM
+- FGF8 / FGF8a / FGF8b: usually 100 ng/mL
+- CHIR99021: 0.8-3 uM
+- CHIR often starts around Day 3-4 and runs to Day 10-13
+
+Family 2. RA-based family
+Typical factors:
+- all-trans RA: 100-800 nM tested, around 200 nM commonly highlighted
+- key determinant is exposure duration, especially a 48-hour pulse
+- SHH pathway activation via SAG is combined with RA
+- this branch explicitly reduces dependence on CHIR/FGF8 patterning
+
+Typical markers for successful Stage C:
+- LMX1A+
+- FOXA2+
+- OTX2+
+- CORIN+
+- low PAX6 dorsal contamination
+- low NKX2.1 or PHOX2B depending on off-target ventral/hindbrain drift
+
+Interpretation:
+- This is the core stage for your dopaminergic progenitor DOE.
+- The main variable is not simply “make TH+ neurons later”, but whether you generate a clean LMX1A+/FOXA2+/OTX2+/CORIN+ ventral midbrain floor-plate population here.
+
+Stage D. Dopaminergic progenitor stabilization / expansion
+Typical time range:
+- Day 9-11 to Day 14-20
+
+Cell state:
+- midbrain floor plate progenitor
+- dopaminergic progenitor
+- neurogenic floor plate progenitor
+- NURR1-emerging DA progenitor
+
+Typical factors:
+- continued low CHIR in some protocols: 0.8-1 uM or up to 3 uM depending on platform
+- continued LDN in some expansion systems
+- Y-27632 during passaging/replating
+- in expansion protocols, SHH/FGF8 may become less important than maintaining progenitor identity and survival
+
+Typical markers:
+- LMX1A, FOXA2, OTX2 remain central
+- CORIN or LRTM1 for sorting/enrichment
+- NURR1 begins to emerge and may define a particularly transplantable window
+
+Interpretation:
+- For a dopaminergic progenitor product, this stage is often the endpoint of greatest practical value.
+- Multiple papers imply that Day 11-16 is a particularly important decision window for harvest, sorting, cryobanking, or transplantation.
+
+Stage E. DA neuronal maturation
+Typical time range:
+- Day 12-14 onward to Day 28-50+
+
+Cell state:
+- immature dopamine neuron
+- maturing DA neuron
+- A9 DA neuron in later protocols
+
+Typical factors:
+- Ascorbic acid / AA: usually 200 uM or 0.2 mM
+- BDNF: commonly 20 ng/mL
+- GDNF: commonly 20 ng/mL
+- TGF-beta3: 1-2 ng/mL
+- dbcAMP / cAMP: 0.5 mM
+- DAPT: 1-10 uM in some protocols
+
+Typical markers:
+- NURR1
+- TH
+- later VMAT2, DAT, GIRK2, PITX3, ALDH1A1
+
+Interpretation:
+- This stage confirms that the progenitor stage was correct.
+- But for optimizing dopaminergic progenitors, this should be treated mainly as a downstream validation stage, not the primary DOE endpoint.
+
+==================================================
+2. Factor and Concentration Ranges by Stage
+==================================================
+
+Stage A. Pre-patterning
+- Y-27632: 10 uM
+Reasoning:
+- Seen repeatedly for plating survival and replating stability.
+- Low-risk to keep fixed in the baseline.
+
+Stage B. Neural induction / dual-SMAD
+- SB431542: around 10 uM
+- LDN193189: 100-200 nM
+- Dorsomorphin: about 2-5 uM when used instead of LDN
+- Noggin: up to about 600 ng/mL in some older/classical protocols
+Reasoning:
+- This is one of the strongest shared consensus steps.
+- Most protocols that robustly reach ventral midbrain lineage start here.
+
+Stage C. Ventralization + midbrain patterning, WNT/FGF8/SHH family
+- SHH: about 100 ng/mL
+- Purmorphamine: 1-2 uM
+- SAG: about 1 uM
+- FGF8/FGF8a/FGF8b: about 100 ng/mL
+- CHIR99021: about 0.8-3 uM
+Reasoning:
+- These ranges recur across multiple protocol papers.
+- CHIR is the most sensitive variable and likely interacts with medium and cell line.
+- 0.8-1 uM appears in more tightly controlled midbrain protocols, while 3 uM appears in several classical floor-plate protocols.
+
+Stage C alternative. RA-based midbrain patterning family
+- RA: about 100-800 nM tested
+- practical center from this set: around 200 nM
+- key timing variable: 1 day vs 2 days vs 4 days exposure
+Reasoning:
+- The RA paper strongly argues that duration matters more than concentration.
+- A 48 h RA pulse plus SHH pathway activation gave robust LMX1A+/FOXA2+/OTX2+ vMB progenitors.
+- This family should not be mixed blindly with the CHIR/FGF8 family in one first-pass DOE without a branch structure.
+
+Stage D. Progenitor stabilization / sorting / expansion
+- CHIR99021 maintenance: around 0.8-1 uM in some progenitor maintenance settings, up to 3 uM in others
+- LDN193189 maintenance during expansion: used in some expansion systems
+- Y-27632: 10 uM at passaging/replating
+Reasoning:
+- This stage is less about strong repatterning and more about preserving a clean progenitor identity.
+- CORIN and LRTM1 appear as practical enrichment markers.
+
+Stage E. Neuronal maturation support
+- Ascorbic acid: about 200 uM / 0.2 mM
+- BDNF: 20 ng/mL
+- GDNF: 20 ng/mL
+- TGF-beta3: 1-2 ng/mL
+- dbcAMP or cAMP: 0.5 mM
+- DAPT: 1-10 uM
+Reasoning:
+- These factors are highly recurrent downstream maturation supports.
+- For a progenitor DOE, they should mostly be held fixed.
+
+==================================================
+3. Recommended Working Definition of the Dopaminergic Progenitor Endpoint
+==================================================
+
+For this project, I recommend defining the desired endpoint operationally as:
+- Day 11-16 ventral midbrain dopaminergic progenitor / floor plate progenitor
+
+Primary positive markers:
+- LMX1A
+- FOXA2
+- OTX2
+- CORIN if measurable
+- optionally EN1 depending on whether you prefer more caudal vMB identity
+- NURR1 can be used as a late progenitor / early neurogenic DA marker
+
+Primary negative / exclusion markers:
+- OCT4 residual pluripotent cells
+- PAX6 high dorsal neural contamination
+- NKX2.1 high ventral forebrain contamination
+- PHOX2B hindbrain contamination
+- KI67 if overproliferation risk matters in a transplantation-oriented workflow
+
+Why this endpoint:
+- It matches the most actionable cell state across the selected papers.
+- It is early enough to optimize lineage specification before long maturation confounds the result.
+- It is also the stage most relevant for sorting, cryobanking, and transplantation strategies.
+
+==================================================
+4. Core Logic for the DOE Structure
+==================================================
+
+The 10 papers do not describe one single protocol family.
+They cluster into two main strategy families:
+
+Family A:
+- dual-SMAD inhibition + SHH/PM or SAG + CHIR +/- FGF8
+- this is the classical floor-plate route
+
+Family B:
+- dual-SMAD inhibition + RA pulse + SHH/SAG
+- this is the RA-based mesencephalic patterning route
+
+Why this matters:
+- If you throw RA and CHIR/FGF8 into one undifferentiated DOE, interpretation becomes muddy.
+- These are not just dose tweaks of the same pathway logic. They are partly different patterning paradigms.
+- Therefore the first DOE should either:
+  1. compare the two families as a categorical branch factor, or
+  2. choose one family as baseline and optimize within it.
+
+My recommendation:
+- Run a branch-comparison mini DOE first.
+- Then optimize the winning branch in a second DOE.
+
+==================================================
+5. Proposed DOE
+==================================================
+
+Stage 0. Branch comparison DOE
+Objective:
+- Decide whether your iPSC line behaves better with the classical WNT/FGF8 route or the RA route for generating clean dopaminergic progenitors.
+
+Branch A baseline:
+- Day 0-7: SB431542 10 uM + LDN193189 100-200 nM
+- SHH 100 ng/mL + Purmorphamine 1-2 uM or SAG 1 uM
+- FGF8 100 ng/mL
+- CHIR99021 centered around 1 uM to 3 uM, starting around Day 3-4
+
+Branch B baseline:
+- Day 0-4: SB431542 + LDN193189
+- RA 200 nM for 48 h
+- SAG around 1 uM for ventralization
+- no CHIR/FGF8 as the primary mesencephalic specification signal
+
+Primary readout at Day 9-11:
+- LMX1A+/FOXA2+/OTX2+ fraction
+- PAX6 contamination
+- NKX2.1 and PHOX2B contamination
+- viability / morphology consistency
+
+Decision rule:
+- Pick the branch that gives the cleanest and most reproducible ventral midbrain progenitor identity, not just the highest later TH expression.
+
+==================================================
+6. DOE A: Optimization within the Classical WNT/FGF8/SHH Family
+==================================================
+
+Objective:
+- Maximize clean ventral midbrain dopaminergic progenitor generation at Day 11-16.
+
+Primary response variables:
+- LMX1A+/FOXA2+ percentage
+- OTX2+ percentage
+- CORIN+ percentage if available
+- OCT4 residual percentage
+- PAX6, NKX2.1, PHOX2B contamination
+- viable yield
+
+Secondary response variables:
+- NURR1 at Day 14-16
+- later TH confirmation at Day 25-30 only as downstream validation
+
+Screening factors:
+
+Factor A. CHIR99021 concentration
+Levels:
+- 0.8 uM
+- 1.5 uM
+- 3.0 uM
+Logic:
+- This is one of the most variable and important factors across the selected articles.
+- Lower values tend to reduce hindbrain drift but may underpattern some lines.
+- Higher values can improve midbrain induction but also introduce sensitivity and off-target patterning.
+
+Factor B. CHIR start time
+Levels:
+- Day 3
+- Day 4
+- Day 5
+Logic:
+- Different protocols start CHIR in slightly different windows.
+- This likely interacts strongly with the pace of neural induction in each iPSC line.
+
+Factor C. CHIR duration
+Levels:
+- to Day 10
+- to Day 11
+- to Day 13
+Logic:
+- Several papers imply the duration window matters as much as the dose.
+- Longer exposure may push caudalization too far in some lines.
+
+Factor D. SHH pathway strength
+Levels:
+- SHH 100 ng/mL + PM 1 uM
+- SHH 100 ng/mL + PM 2 uM
+- SAG 1 uM
+Logic:
+- Papers use both SHH+PM and SAG-based ventralization.
+- This is a true pathway-implementation variable, not just a minor tweak.
+
+Factor E. FGF8 inclusion
+Levels:
+- 0 ng/mL
+- 100 ng/mL
+Logic:
+- FGF8 is common in classical protocols, but not universal in newer alternatives.
+- Useful as a yes/no screen if resources allow.
+
+Factor F. Dual-SMAD duration
+Levels:
+- 5 days
+- 7 days
+- 9 days
+Logic:
+- Persistent early SMAD inhibition can influence both efficiency and overconstraint of early patterning.
+- This also interacts with the timing of CHIR and SHH signals.
+
+Hold fixed during DOE A:
+- SB431542 at 10 uM
+- LDN193189 at 100 nM as a practical center
+- Y-27632 at 10 uM only for plating/replating
+- progenitor harvest/readout at Day 11-16
+- maturation factors should not be used as optimization variables in this phase
+
+==================================================
+7. DOE B: Optimization within the RA-based Family
+==================================================
+
+Objective:
+- Maximize robust generation of LMX1A+/FOXA2+/OTX2+ ventral midbrain progenitors using the RA route.
+
+Primary response variables:
+- LMX1A+/FOXA2+/OTX2+ percentage at Day 9-14
+- low NKX2.1 and low PHOX2B contamination
+- viability and reproducibility across replicates
+
+Screening factors:
+
+Factor A. RA concentration
+Levels:
+- 100 nM
+- 200 nM
+- 500 nM
+Logic:
+- The article set suggests RA is relatively concentration-tolerant compared with CHIR, but this still needs empirical tuning.
+
+Factor B. RA duration
+Levels:
+- 1 day
+- 2 days
+- 4 days
+Logic:
+- This is the most important RA-family variable.
+- The literature strongly supports duration as the key determinant of regional identity.
+
+Factor C. SHH pathway strength
+Levels:
+- SAG 0.5 uM
+- SAG 1.0 uM
+- SHH-equivalent ventralization arm if you want a cross-check
+Logic:
+- RA alone is not enough; ventralization still needs to be set.
+
+Factor D. Dual-SMAD intensity
+Levels:
+- SB431542 10 uM + LDN193189 100 nM
+- SB431542 10 uM + LDN193189 200 nM
+Logic:
+- Keeps the early neural conversion controlled while you test RA timing.
+
+Hold fixed during DOE B:
+- no CHIR as primary mesencephalic factor
+- no FGF8 in the first-pass RA DOE
+- readout at Day 9-14
+
+==================================================
+8. Minimal Practical DOE if You Want One First Campaign Only
+==================================================
+
+If you want a compact first campaign, I would do this instead of a huge matrix.
+
+Step 1. Compare two branches:
+- Classical branch: CHIR 1 uM, SHH 100 ng/mL, PM 2 uM, FGF8 100 ng/mL
+- RA branch: RA 200 nM for 48 h + SAG 1 uM
+
+Step 2. If classical branch wins, optimize:
+- CHIR concentration
+- CHIR timing
+- SHH/PM strength
+- FGF8 yes/no
+
+Step 3. If RA branch wins, optimize:
+- RA duration
+- RA concentration
+- SAG strength
+
+This is a much cleaner path than trying to optimize everything at once.
+
+==================================================
+9. What to Measure in Each Run
+==================================================
+
+At Day 2-4:
+- OCT4 down
+- SOX1 / early neural induction markers
+
+At Day 9-11:
+- LMX1A
+- FOXA2
+- OTX2
+- CORIN if possible
+- PAX6
+- NKX2.1
+- PHOX2B
+
+At Day 14-16:
+- LMX1A/FOXA2/OTX2 still maintained
+- CORIN or LRTM1 if you plan sorting
+- NURR1 emergence
+- KI67 if proliferation risk matters
+
+At Day 25-30 for validation only:
+- TH
+- VMAT2
+- GIRK2
+- DAT or PITX3 if needed
+
+Why this measurement scheme:
+- It tells you where a run fails.
+- It distinguishes failure of neural induction from failure of midbrain patterning from failure of later neuronal maturation.
+- It also keeps the DOE aligned to progenitor optimization rather than mature neuron optimization.
+
+==================================================
+10. Recommended Anchor Protocol for a Progenitor-Focused Program
+==================================================
+
+Anchor Protocol A: Classical branch
+Day -1 to 0:
+- iPSC plating with Y-27632 10 uM
+
+Day 0 to 7:
+- neural induction with SB431542 10 uM + LDN193189 100 nM
+
+Day 1 to 7:
+- ventralization with SHH 100 ng/mL + Purmorphamine 2 uM
+- FGF8 100 ng/mL included early
+
+Day 3 to 11:
+- CHIR99021 1 uM as the starting center point
+
+Day 11 to 14:
+- assess dopaminergic progenitor identity
+- optional sort/enrich by CORIN or similar marker if your workflow needs it
+
+Anchor Protocol B: RA branch
+Day -1 to 0:
+- iPSC plating with Y-27632 10 uM
+
+Day 0 to 4:
+- dual-SMAD neural induction
+- RA 200 nM for 48 h
+- SAG 1 uM for ventralization
+
+Day 9 to 14:
+- assess LMX1A+/FOXA2+/OTX2+ progenitors
+- prioritize reproducibility and low off-target contamination
+
+==================================================
+11. Logic Behind the Summary
+==================================================
+
+Selection logic:
+- I prioritized local PMC papers that were clearly protocol-oriented and involved iPSC/hPSC differentiation toward midbrain dopaminergic lineage.
+- If a paper ended in mature DA neurons but clearly described a progenitor or floor plate stage, I still used it, because your DOE target is the progenitor stage and these papers often define that stage well.
+- I deprioritized broad reviews and papers without actionable stage timing.
+
+Aggregation logic:
+- I grouped recurring protocol steps by developmental function rather than by exact reagent recipe.
+- This revealed a strong shared scaffold:
+  iPSC -> neural induction via dual-SMAD -> ventral midbrain/floor-plate patterning -> DA progenitor stabilization -> neuronal maturation.
+- I then separated the literature into a classical CHIR/FGF8/SHH family and an RA-based family because they are mechanistically distinct enough that combining them blindly would make DOE results hard to interpret.
+
+Why the DOE focuses on progenitors instead of TH+ neurons:
+- The papers consistently show that correct floor-plate / vMB progenitor identity determines downstream DA neuron quality.
+- TH appears later and can be influenced by maturation conditions, so it is not the cleanest first-pass optimization endpoint if your true product is a transplantable or bankable progenitor.
+
+==================================================
+12. Self-check and Limitations
+==================================================
+
+Self-check process:
+1. I first screened local PMC XMLs for dopaminergic and ventral midbrain markers.
+2. I filtered for protocol-like iPSC/hPSC differentiation papers rather than general disease papers.
+3. I cross-checked selected articles against the local extracted trajectory table to recover explicit day and concentration statements.
+4. I used direct XML sentence reads to verify the most important timing and factor windows, especially for CHIR, SHH/PM/SAG, FGF8, RA, and floor-plate markers.
+5. I separated clearly supported consensus from branch-specific strategies.
+
+Main assumptions:
+- Your real optimization target is dopaminergic progenitors, not only final TH+ neurons.
+- You want a practical experiment design, so the DOE should reduce confounding rather than maximize the number of variables in one shot.
+- Your platform is likely a 2D adherent iPSC workflow, not a bioreactor or organoid-only setup.
+
+Limitations:
+- Not all 10 selected papers report all concentrations with the same completeness.
+- Some articles focus more on sorting, transplantation, or maturation than on the earliest induction steps.
+- The local rule-extracted timeline table is imperfect, so I used it only as a pointer and checked key protocol windows against the source XML text.
+- Because you asked not to use the API, this summary is a manual synthesis rather than a fresh per-paper LLM extraction pass.
+
+Final recommendation:
+- First decide between the classical CHIR/FGF8/SHH family and the RA/SAG family for your iPSC line.
+- Then optimize the winning branch around its true high-sensitivity variables.
+- Use Day 9-16 ventral midbrain progenitor identity, not just later TH positivity, as the main screening endpoint.
